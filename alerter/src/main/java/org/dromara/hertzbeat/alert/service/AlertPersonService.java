@@ -8,6 +8,7 @@ import java.util.List;
  * Alert person service
  */
 public interface AlertPersonService {
+
     /**
      * Add alert person
      * @param alertPerson Alert person entity

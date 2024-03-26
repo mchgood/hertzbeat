@@ -39,24 +39,24 @@ public class AlertPerson {
             description = "告警通知人名称",
             example = "张三", accessMode = READ_WRITE)
     @Length(max = 255)
-    private String Username;
+    private String username;
 
     @Schema(title = "Alert person ID",
             description = "告警通知人ID",
             example = "8743267443543", accessMode = READ_WRITE)
-    private String UserId;
+    private String userId;
 
     @Schema(title = "Alert person phone number",
             description = "告警通知人手机号",
             example = "18888888888", accessMode = READ_WRITE)
     @PhoneNumValid
-    private String PhoneNumber;
+    private String phoneNumber;
 
     @Schema(title = "Alert person type",
             description = "告警通知人类型",
             example = "5")
-     /*
-      4: wechat, 5: dingtalk
-     */
+    /*
+     4: wechat, 5: dingtalk
+    */
     private byte type;
 }

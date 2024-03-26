@@ -26,8 +26,6 @@ import org.dromara.hertzbeat.common.entity.manager.NoticeTemplate;
 import org.dromara.hertzbeat.manager.support.exception.AlertNoticeException;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
-
-import java.util.Arrays;
 import java.util.List;
 
 /**
