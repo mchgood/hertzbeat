@@ -27,6 +27,9 @@ import org.dromara.hertzbeat.manager.support.exception.AlertNoticeException;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Send alarm information through DingTalk robot
  * 通过钉钉机器人发送告警信息
@@ -43,9 +46,13 @@ final class DingTalkRobotAlertNotifyHandlerImpl extends AbstractAlertNotifyHandl
         try {
             DingTalkWebHookDto dingTalkWebHookDto = new DingTalkWebHookDto();
             MarkdownDTO markdownDTO = new MarkdownDTO();
-            markdownDTO.setText(renderContent(noticeTemplate, alert));
+            markdownDTO.setText(renderContent(noticeTemplate, alert)+"@15755597400");
             markdownDTO.setTitle(bundle.getString("alerter.notify.title"));
             dingTalkWebHookDto.setMarkdown(markdownDTO);
+            DingRobotMsgAt dingRobotMsgAt = new DingRobotMsgAt();
+            dingRobotMsgAt.setIsAtAll(false);
+            dingRobotMsgAt.setAtMobiles(List.of("15755597400"));
+            dingTalkWebHookDto.setAt(dingRobotMsgAt);
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
             HttpEntity<DingTalkWebHookDto> httpEntity = new HttpEntity<>(dingTalkWebHookDto, headers);
@@ -94,6 +101,11 @@ final class DingTalkRobotAlertNotifyHandlerImpl extends AbstractAlertNotifyHandl
          */
         private MarkdownDTO markdown;
 
+        /**
+         * 设置告警通知人
+         */
+        private DingRobotMsgAt at;
+
     }
 
     @Data
@@ -108,4 +120,19 @@ final class DingTalkRobotAlertNotifyHandlerImpl extends AbstractAlertNotifyHandl
         private String title;
     }
 
+    @Data
+    public static class DingRobotMsgAt {
+        /**
+         * 是否@所有人
+         */
+        private Boolean isAtAll;
+        /**
+         * 被@人的手机号
+         */
+        private List<String> atMobiles;
+        /**
+         * 被@人的用户userid
+         */
+        private List<String> atUserIds;
+    }
 }
