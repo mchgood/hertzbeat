@@ -51,6 +51,7 @@ import org.apache.hertzbeat.common.entity.job.protocol.SshProtocol;
 import org.apache.hertzbeat.common.entity.job.protocol.TelnetProtocol;
 import org.apache.hertzbeat.common.entity.job.protocol.UdpProtocol;
 import org.apache.hertzbeat.common.entity.job.protocol.WebsocketProtocol;
+import org.apache.hertzbeat.common.entity.job.protocol.log.LogProtocol;
 import org.apache.hertzbeat.common.entity.message.CollectRep;
 
 /**
@@ -206,6 +207,10 @@ public class Metrics {
      * Monitoring configuration information using the public http_sd protocol
      */
     private HttpsdProtocol httpsd;
+    /**
+     * Monitoring configuration information using the public log protocol
+     */
+    private LogProtocol log;
 
     /**
      * collector use - Temporarily store subTask metrics response data

@@ -119,6 +119,14 @@ public interface DispatchConstants {
      * protocol http_sd
      */
     String PROTOCOL_HTTP_SD = "httpsd";
+    /**
+     * protocol ssh log
+     */
+    String PROTOCOL_SSH_LOG = "sshLog";
+    /**
+     * protocol file log
+     */
+    String PROTOCOL_FILE_LOG = "fileLog";
 
     // Protocol type related - end
     // 协议类型相关 - end //
